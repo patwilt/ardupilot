@@ -1,8 +1,6 @@
 #include "AP_Math.h"
 #include "SE23.h"
 
-//SE23::SE23(const Matrix3f& rot, const Vector3f& x, const Vector3f& w, ftype alpha)
-    //: _rot(rot), _x(x), _w(w), _alpha(alpha) {}
 
 SE23 SE23::operator *(const SE23& rhs) {
     Matrix3F rot_result = _rot * rhs._rot;
@@ -12,7 +10,7 @@ SE23 SE23::operator *(const SE23& rhs) {
     ftype alpha_result = _alpha + rhs._alpha;
     return(SE23(rot_result, x_result, w_result, alpha_result));
 }
-//Calculates the matrix exponential of SE23
+// Calculates the matrix exponential of SE23, based on the working by Mr. Shawn (Yixiao) Ge
 SE23 SE23::exponential(const Vector3F &S, const Vector3F &x,const Vector3F &w, ftype alpha) {
     const ftype theta = S.length();
     Matrix3F input_matrix = Matrix3F::skew_symmetric(S); //example of using statics

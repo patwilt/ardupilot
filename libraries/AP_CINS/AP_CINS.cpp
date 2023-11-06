@@ -1,5 +1,5 @@
 /*
-  CINS state estimator for AP_AHRS
+  CINS state estimator for AP_AHRS, devloped by Mr Patrick Wiltshire and Dr Pieter Van Goor 
  */
 
 #include "AP_CINS.h"
@@ -185,9 +185,6 @@ void AP_CINS::update_gps(const Vector3F &pos, const ftype gps_dt)
  */
 void AP_CINS::update_imu(const Vector3F &gyro_rads, const Vector3F &accel_mss, const ftype dt)
 {
-    /*
-    Normal time update, based of the CINS Disc alg developed by Dr Pieter Van goor and Pat Wiltshire  
-    */
     //Integrate Dynamics using the Matrix exponential 
     //Create Zero vector 
     Vector3F zero_vector;
